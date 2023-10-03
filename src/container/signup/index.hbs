@@ -1,0 +1,57 @@
+{{!
+Це код container файлу для index сторінки,
+в якому міститься код, котрий буде віддаватися по шляху (PATH) - "/"
+}}
+
+<div class="page page--background">
+    <header>
+        {{> back-button}}
+    </header>
+
+    <form class="page__section">
+        <h1 class="page__title">Реєстрація</h1>
+        <div class="form">
+            <div class="form__item">
+                {{>field action="signupForm.change" label="Електронна адреса" type="email" name="email" placeholder="Ваш
+                email"}}
+                <span class="form__error" name="email">Помилка</span>
+            </div>
+
+            <div class="form__item">
+                {{>field-password action="signupForm.change" label="Пароль" type="password" name="password"
+                placeholder="Введіть пароль"}}
+                <span class="form__error" name="password">Помилка</span>
+            </div>
+
+            <div class="form__item">
+                {{>field-password action="signupForm.change" label="Пароль ще раз" type="password" name="password"
+                placeholder="Введіть пароль"}}
+                <span class="form__error" name="password">Помилка</span>
+            </div>
+
+            <div class="form__item">
+                {{>field-select action="signupForm.change" label="Роль" name="role" placeholder="Оберіть роль"
+                list=data.role
+                }}
+                <span class="form__error" name="role">Помилка</span>
+            </div>
+
+            <div class="form__item">
+                {{>field-checkbox action="signupForm.change" label="Ви погоджуєтесь з правилами сервіса"
+                name="isConfirm"}}
+                <span class="form__error" name="isConfirm">Помилка</span>
+            </div>
+        </div>
+
+        <button class="button" type="button" onclick="signupForm.submit()">Зареєструватися</button>
+
+        <span class="alert alert--error">Внимание, ошибка!</span>
+    </form>
+</div>
+
+{{!
+Цей код містить лише те, що буде виводитись в
+
+<body>
+    Адже наш layout/default.hbs має вже структуру HTML
+    }}
