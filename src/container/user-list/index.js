@@ -51,13 +51,30 @@ class UserList extends List {
 
         switch (this.status) {
             case this.STATE.LOADING:
-                this.element.innerHTML = `<span class="alert alert--progress">Loading...</span>`
+                this.element.innerHTML = `
+                <div class="user">
+                    <span class="user__title skeleton"></span>
+                    <span class="user__sub skeleton"></span>
+                </div>
+                <div class="user">
+                    <span class="user__title skeleton"></span>
+                    <span class="user__sub skeleton"></span>
+                </div>
+                <div class="user">
+                    <span class="user__title skeleton"></span>
+                    <span class="user__sub skeleton"></span>
+                </div>
+                <div class="user">
+                    <span class="user__title skeleton"></span>
+                    <span class="user__sub skeleton"></span>
+                </div>
+            `
                 break
 
             case this.STATE.SUCCESS:
                 this.data.list.forEach((item) => {
                     this.element.innerHTML += `
-                        <a href="/user-item?id${item.id}" class="user user--click">
+                        <a href="/user-item?id=${item.id}" class="user user--click">
                             <span class="user__title">${item.email}</span>
                             <span class="user__sub">${item.role}</span>
                         </a>
